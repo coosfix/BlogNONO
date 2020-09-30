@@ -6,12 +6,14 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var dashborad = require('./routes/dashboard/index');
 
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs',require('express-ejs-extend'));
 app.set('view engine', 'ejs');
+app.use(express.static('public'));//抓取靜態路徑檔案
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/dashborad', dashborad)
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

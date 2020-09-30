@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<% extend('./layout/layout')%>
+<div class="d-flex h-100">
+    <div class="col-xl-2 left-sidebar h-100"></div>
+    <main class="col-xl-10 h-100">
+        <h1>首頁</h1>
+    </main>
+</div>
